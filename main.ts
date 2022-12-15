@@ -1,5 +1,6 @@
 let kostka = 0
 let score = 0
+let kolikSest = 0
 // basic.showNumber(3)
 // basic.pause(200)
 // basic.showNumber(2)
@@ -77,8 +78,18 @@ let score = 0
             . # . # .
             `)
         music.playTone(Note.A, music.beat(BeatFraction.Whole))
-        whaleysans.showNumber(score)
-        basic.pause(2500)
-        score = 0
+        kolikSest += 1
+        basic.pause(500)
+        if (kolikSest == 3) {
+            whaleysans.showNumber(score)
+            music.playTone(Note.C, music.beat(BeatFraction.Half))
+            music.playTone(Note.D, music.beat(BeatFraction.Half))
+            music.playTone(Note.E, music.beat(BeatFraction.Whole))
+            kolikSest = 0
+            score = 0
+        }
+        else {
+            score + 1
+        }
     }
     })
